@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -8,6 +8,8 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AgGridComponent implements OnInit {
 
+  @Input() rowData: any;
+
   columnDefs = [
     { headerName: 'Id', field: 'id', sortable: true, checkboxSelection: true },
     { headerName: 'Name', field: 'name', sortable: true, filter: true },
@@ -16,11 +18,11 @@ export class AgGridComponent implements OnInit {
     { headerName: 'Website', field: 'website', sortable: true, filter: true },
     { headerName: 'Street', field: 'street', sortable: true, filter: true }
   ];
-  rowData: any;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.rowData = this.http.get('https://jsonplaceholder.typicode.com/users');
+    // this.rowData = this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 
 }

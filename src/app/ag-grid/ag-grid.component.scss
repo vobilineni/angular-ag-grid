@@ -3,3 +3,7 @@
   width: 1000px;
   height: 320px;
 }
+
+::ng-deep .ag-header-viewport {
+  background: red;
+}

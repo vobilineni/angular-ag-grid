@@ -1,15 +1,16 @@
 <div>
   <div class="left-page">
+    <form [formGroup]="fpbForm">
     <div class="row"><label class="label">Filters</label>
-      <button class="primary">Apply Filter</button>
+      <button class="primary" (click)="applyFilter($event)">Apply Filter</button>
     </div>
     <div class="unit">
       <h5>Units</h5>
-      <div class="unit-label"><input type="radio" id="1" name="hello" value="hello"/><label
+      <div class="unit-label"><input formControlName="unit" type="radio" id="1" name="unit" value="hello1"/><label
         class="unit-label">Unit1</label></div>
-      <div class="unit-label"><input type="radio" id="2" name="hello2" value="hello2"/><label
+      <div class="unit-label"><input formControlName="unit" type="radio" id="2" name="unit" value="hello2"/><label
         class="unit-label">Unit2</label></div>
-      <div class="unit-label"><input type="radio" id="3" name="hello3" value="hello3"/><label
+      <div class="unit-label"><input formControlName="unit" type="radio" id="3" name="unit" value="hello3"/><label
         class="unit-label">Unit3</label></div>
     </div>
     <div class="unit">
@@ -17,7 +18,7 @@
       <div class="unit-label">
         <div><input type="checkbox" id="21" name="hello2" value="hello2"/><label class="unit-label">Worldwide</label></div>
         <div class="unit-label">
-          <div class="unit-label"><input type="checkbox" id="22" name="hello" value="hello"/><label
+          <div class="unit-label"><input formControlName="rpUnit" type="checkbox" id="22" name="hello" value="hello"/><label
             class="unit-label">India</label></div>
           <div class="unit-label"><input type="checkbox" id="23" name="hello2" value="hello2"/><label
             class="unit-label">USA</label></div>
@@ -26,8 +27,9 @@
         </div>
       </div>
     </div>
+    </form>
   </div>
   <div class="grid">
-    <app-ag-grid></app-ag-grid>
+    <app-ag-grid [rowData]="gridData"></app-ag-grid>
   </div>
 </div>
